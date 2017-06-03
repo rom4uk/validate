@@ -1,11 +1,4 @@
-/*
-<form name="login" action="google.com">
-   <input type="text" name="age">
-   <input type="text" name="username">
-   <input type="text" name="date">
-   <input type="submit" value="Validate Me">
-</form>
-*/
+
 function validate(){
 var body = document.body; // змінна боді
 var form = document.createElement('form'); //створив ноду form
@@ -28,14 +21,7 @@ for(var i = 0; i < inputs.length; i++){
   inputs[i].setAttribute('style', 'display: block; margin-top: 5px');
   var element = inputs[i];  
 }
-/*
-var form1 = document.forms[0];
-var formInputs = Array.prototype.slice.call(form.children); 
 
-form.children - це псевдомасив дочірніх елементів form
-Array.prototype.slice.call(form.children) - робить з нього нативний масив
-з всіма методами, з яких нам потрібний forEach
-*/
 inputs[0].setAttribute('placeholder', 'Вік');
 inputs[1].setAttribute('name', 'username');
 inputs[1].setAttribute('placeholder', "username begin's of user_");
