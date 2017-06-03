@@ -38,16 +38,7 @@ var z = document.querySelector('input[name="date"]');
 var x = document.querySelector('input[name="age"]');
 var y = document.querySelector('input[name="username"]');
 
-
-var clearForm = function(){
-  x.value = '';
-  y.value = '';
-  z.value = '';
-}
-
-
-var ages = function(){
-  
+var ages = function(){  
   if(x.value < 0){
     alert("Вік не може бути від'ємним");
     return false;
@@ -62,9 +53,7 @@ var ages = function(){
     return true;
   }
 }
-
 //valid username
-
 var userName = function(){  
   if (!(y.value.startsWith("user_"))) { 
    alert('Поле username повинно починатись з "user_"');
@@ -103,9 +92,6 @@ button.onclick = function(e){
   ages();
   userName();
   date();
-  if(date() && userName() && date()){
-    clearForm();
-  }
 };
 }
 validate();
