@@ -86,12 +86,24 @@ var date = function(){
    return true;
  }
 }
+
+
+var clear = function(){
+  document.querySelector('input[name=age]').value = '';
+  document.querySelector('input[name=username]').value = '';
+  document.querySelector('input[name=date]').value = '';
+  alert('Form successfully complete');
+}
+
 var button = document.getElementById('submit');
 button.onclick = function(e){
   e.preventDefault();
   ages();
   userName();
   date();
+  if(ages() && userName() && date()){
+    clear();
+  }
 };
 }
 validate();
