@@ -33,12 +33,18 @@ inputs[3].setAttribute('id', 'submit');
 inputs[3].removeAttribute('name');
 inputs[3].removeAttribute('text');
 
-//valid age
-var z = document.querySelector('input[name="date"]');
-var x = document.querySelector('input[name="age"]');
-var y = document.querySelector('input[name="username"]');
 
-var ages = function(){  
+
+
+var button = document.getElementById('submit');
+button.onclick = function(e){
+  e.preventDefault();
+  var z = document.querySelector('input[name="date"]');
+  var x = document.querySelector('input[name="age"]');
+  var y = document.querySelector('input[name="username"]');
+
+  
+  //validate age
   if(x.value < 0){
     alert("Вік не може бути від'ємним");
     return false;
@@ -49,61 +55,36 @@ var ages = function(){
   else if(isNaN(x.value)){
     alert('Поле Вік має містити числове значення');
   }
-  else{
-    return true;
-  }
-}
-//valid username
-var userName = function(){  
-  if (!(y.value.startsWith("user_"))) { 
-   alert('Поле username повинно починатись з "user_"');
-   return false;
- } 
- else{
-  return true;
-}
-}
 
-// valid data
+//validate username
+if (!(y.value.startsWith("user_"))) { 
+ alert('Поле username повинно починатись з "user_"');
+ return false;
+} 
 
-var date = function(){  
-  var dateNow = new Date();
-  var day = dateNow.getDate();
-  var month = dateNow.getMonth() + 1;
-  var year = dateNow.getFullYear();
-  if(day < 10){
-    day = '0' + day;
-  }
-  if(month < 10){
-    month = '0' + month;
-  }
-  var currentDate = day + '/' + month + '/' + year;
-  if(z.value !== currentDate){
-    alert('В поле дата введіть поточну дату');
-    return false
-  }
-  else {
-   return true;
- }
+ // validate data
+
+ var dateNow = new Date();
+ var day = dateNow.getDate();
+ var month = dateNow.getMonth() + 1;
+ var year = dateNow.getFullYear();
+ if(day < 10){
+  day = '0' + day;
+}
+if(month < 10){
+  month = '0' + month;
+}
+var currentDate = day + '/' + month + '/' + year;
+if(z.value !== currentDate){
+  alert('В поле дата введіть поточну дату');
+  return false
 }
 
+alert('Form successfully complete');
+document.querySelector('input[name=age]').value = '';
+document.querySelector('input[name=username]').value = '';
+document.querySelector('input[name=date]').value = '';
 
-var clear = function(){
-  document.querySelector('input[name=age]').value = '';
-  document.querySelector('input[name=username]').value = '';
-  document.querySelector('input[name=date]').value = '';
-  alert('Form successfully complete');
-}
-
-var button = document.getElementById('submit');
-button.onclick = function(e){
-  e.preventDefault();
-  ages();
-  userName();
-  date();
-  if(ages() && userName() && date()){
-    clear();
-  }
 };
 }
 validate();
