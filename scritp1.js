@@ -1,10 +1,9 @@
 
 function validate(){
-var body = document.body; // змінна боді
-var form = document.createElement('form'); //створив ноду form
-body.appendChild(form); //додав ноду form в DOM
-form.setAttribute('name', 'login'); //form.setAttribute('action', 'google.com'); // задав атрибут ноді
-  // додав в ноду form 4 ноди input 
+var body = document.body; 
+var form = document.createElement('form'); 
+body.appendChild(form); 
+form.setAttribute('name', 'login'); 
   function createInput(){ 
     var age = document.createElement('input');
     age.setAttribute('text', 'text');
@@ -15,7 +14,6 @@ form.setAttribute('name', 'login'); //form.setAttribute('action', 'google.com');
     createInput();
   }
 
-//задаю дисплей блок і маржини елементам форми
 var inputs = document.forms[0];
 for(var i = 0; i < inputs.length; i++){
   inputs[i].setAttribute('style', 'display: block; margin-top: 5px');
@@ -32,18 +30,12 @@ inputs[3].setAttribute('value', 'Validate Me');
 inputs[3].setAttribute('id', 'submit');
 inputs[3].removeAttribute('name');
 inputs[3].removeAttribute('text');
-
-
-
-
 var button = document.getElementById('submit');
 button.onclick = function(e){
   e.preventDefault();
   var z = document.querySelector('input[name="date"]');
   var x = document.querySelector('input[name="age"]');
   var y = document.querySelector('input[name="username"]');
-
-  
   //validate age
   if(x.value < 0){
     alert("Вік не може бути від'ємним");
@@ -55,15 +47,12 @@ button.onclick = function(e){
   else if(isNaN(x.value)){
     alert('Поле Вік має містити числове значення');
   }
-
 //validate username
 if (!(y.value.startsWith("user_"))) { 
  alert('Поле username повинно починатись з "user_"');
  return false;
 } 
-
  // validate data
-
  var dateNow = new Date();
  var day = dateNow.getDate();
  var month = dateNow.getMonth() + 1;
@@ -79,7 +68,6 @@ if(z.value !== currentDate){
   alert('В поле дата введіть поточну дату');
   return false
 }
-
 alert('Form successfully complete');
 document.querySelector('input[name=age]').value = '';
 document.querySelector('input[name=username]').value = '';
