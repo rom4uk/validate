@@ -3,7 +3,12 @@ body{
 	padding: 0;
 }
 .red{
-	border: 2px solid red;
+	border: 5px solid red;
+	border-radius: 5px;
+	text-shadow: none;
+	margin: 10px;
+	padding: 5px 10px;
+	outline: none;
 }
 
 form{

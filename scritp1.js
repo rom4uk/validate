@@ -39,11 +39,13 @@ function checkForm(e){
   var date = document.querySelector('[name=age]');
   //check age
   if (isNaN(age.value) || age.value == '' || age.value < 0){
+    age.classList.add('red');
     console.log(age.value, 'enter a number');
     return false;
   }
 
   else {
+    age.classList.remove('red');
     console.log(age.value, 'OK');
     return true;
   }
