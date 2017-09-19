@@ -1,6 +1,7 @@
 body{
 	margin: 0;
 	padding: 0;
+	text-align: -webkit-center;
 }
 .red{
 	border: 5px solid red;
@@ -12,11 +13,14 @@ body{
 }
 
 form{
+	width: 220px;
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
-	border: 1px solid #0f5aaa;
 }
 .inputs{
+	width: 200px;
 	border-radius: 5px;
 	text-shadow: none;
 	margin: 10px;

@@ -30,32 +30,69 @@ function createForm(){
   document.body.insertBefore(form, document.body.firstChild);
 }
 createForm();
+function createAlert(){
+  var span = document.createElement('span');
+}
 
 
 function checkForm(e){
   e.preventDefault();
   var age = document.querySelector('[name=age]');
-  var userName = document.querySelector('[name=age]');
-  var date = document.querySelector('[name=age]');
+  var userName = document.querySelector('[name=username]');
+  var date = document.querySelector('[name=date]');
   //check age
-  if (isNaN(age.value) || age.value == '' || age.value < 0){
+
+
+  var regAge = /^[0-9]*$/;
+  if (!regAge.test(age.value) || age.value < '0'){
     age.classList.add('red');
     console.log(age.value, 'enter a number');
-    return false;
   }
-
   else {
     age.classList.remove('red');
     console.log(age.value, 'OK');
-    return true;
+  }
+  //check username
+
+  if (!(userName.value.startsWith('user_')) || userName.value.length <= 5){
+    userName.classList.add('red');
+    console.log(userName.value, 'User Name should starts with ');
+  }
+  else {
+    userName.classList.remove('red');
+    console.log(userName.value, 'OK');
   }
 
+  //check date
+  var dateNow = new Date();
+  var day = dateNow.getDate();
+  var month = dateNow.getMonth() + 1;
+  var year = dateNow.getFullYear();
+  if(day < 10){
+    day = '0' + day;
+  }
+  if(month < 10){
+    month = '0' + month;
+  }
+  var currentDate = day + '/' + month + '/' + year;
+  if(date.value !== currentDate){
+    date.classList.add('red');
+    console.log('В поле дата введіть поточну дату');
+  }
+  else {
+    date.classList.remove('red');
+    console.log(userName.value, 'OK');
+  }
+  alert('Form successfully complete');
+  age.value = '';
+  userName.value = '';
+  date.value = '';
 }
 
 
-var submit = document.querySelector('.my-form');
+var submit = document.querySelector('input[type=submit]');
 console.log(submit)
-submit.addEventListener('submit', checkForm);
+submit.addEventListener('click', checkForm);
 
 
 
