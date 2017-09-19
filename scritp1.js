@@ -7,14 +7,17 @@ function createForm(){
   var age = document.createElement('input');
   age.setAttribute('type', 'text');
   age.setAttribute('name', 'age');
+  age.setAttribute('placeholder', '25');
   age.className = 'inputs'
   var username = document.createElement('input');
   username.setAttribute('type', 'text');
   username.setAttribute('name', 'username');
+  username.setAttribute('placeholder', 'user_@gmail.com');
   username.className = 'inputs'
   var date = document.createElement('input');
   date.setAttribute('type', 'text');
   date.setAttribute('name', 'date');
+  date.setAttribute('placeholder', '25/11/1987');
   date.className = 'inputs'
   var submit = document.createElement('input');
   submit.setAttribute('type', 'submit');
@@ -28,12 +31,33 @@ function createForm(){
 }
 createForm();
 
-function valid(elem){
+
+function checkForm(e){
+  e.preventDefault();
   var age = document.querySelector('[name=age]');
-  console.log('age', age);
+  var userName = document.querySelector('[name=age]');
+  var date = document.querySelector('[name=age]');
+  //check age
+  if (isNaN(age.value) || age.value == '' || age.value < 0){
+    console.log(age.value, 'enter a number');
+    return false;
+  }
+
+  else {
+    console.log(age.value, 'OK');
+    return true;
+  }
+
 }
 
-valid();
+
+var submit = document.querySelector('.my-form');
+console.log(submit)
+submit.addEventListener('submit', checkForm);
+
+
+
+
 
 
 
